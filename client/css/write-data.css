@@ -1,0 +1,32 @@
+h2 {
+    text-align: center;
+}
+
+h5 {
+    color: #777777;
+}
+
+#inputBox {
+    background-color: #cccccc;
+    clear: none;
+    display: block;
+    outline: 12px;
+    border: white;
+    border-style: outset;
+    width: 40%;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1.5vw;
+    margin: 25px auto 0px;
+}
+
+.textbox {
+    width: 15vw;
+}
+
+.btn {
+    padding: 1px 3px;
+    width: 5vw;
+}

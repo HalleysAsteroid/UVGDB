@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+
+<head>
+  <!-- Tab Header -->
+  <meta charset="utf-8">
+  <title>Logan's UVGDB: View Data</title>
+  <link href="/client/images/logo.png" rel="icon">
+
+  <!-- Google Font API -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Lobster&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link href="/client/css/uvgdb.css" rel=stylesheet>
+  <link href="/client/css/view-data.css" rel=stylesheet>
+
+  <!-- JavaScript -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/client/js/view-data.js" async></script>
+
+  <script src="/client/js/deleteFile.js"></script>
+</head>
+
+<body>
+  <header id="TitleScreen">
+    <img id="TitleScreenLogo" src="/client/images/logo.png" alt="UVGDB Logo">
+    <h1 id="TitleScreenText">Universal Video Game Database</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/write-data">Enter Data</a></li>
+      <li><a href="/view-data">View Data</a></li>
+      <li><a href="/browse-data">Browse Data</a></li>
+    </ul>
+  </nav>
+
+  <div>
+    <table class="table">
+      <colgroup>
+        <col id="colGameTitle">
+        <col id="colGeleaseYear">
+        <col id="colRegion">
+        <col id="colPlatform">
+        <col id="colPublisher">
+      </colgroup>
+      <thead>
+        <tr id="tableHeader">
+          <th>Game Title</th>
+          <th>Year of Release</th>
+          <th>Region</th>
+          <th>Platform</th>
+          <th>Publisher</th>
+        </tr>
+      </thead>
+
+      <tbody id="uvgdbTable"></tbody>
+    </table>
+    <button type="button" id="deleteEntry">Click on an item to remove it from the database.</button>
+
+
+  </div>
+</body>
+
+</html>

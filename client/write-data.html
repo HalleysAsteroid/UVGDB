@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+
+<head>
+    <!-- Tab Header -->
+    <meta charset="utf-8">
+    <title>Logan's UVGDB: Enter Data</title>
+    <link href="/client/images/logo.png" rel="icon">
+
+    <!-- Google Font API -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Lobster&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link href="/client/css/uvgdb.css" rel=stylesheet>
+    <link href="/client/css/write-data.css" rel=stylesheet>
+
+    <!-- JavaScript -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/client/js/write-data.js"></script>
+</head>
+
+<body>
+    <header id="TitleScreen">
+        <img id="TitleScreenLogo" src="/client/images/logo.png" alt="UVGDB Logo">
+        <h1 id="TitleScreenText">Universal Video Game Database</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/write-data">Enter Data</a></li>
+            <li><a href="/view-data">View Data</a></li>
+            <li><a href="/browse-data">Browse Data</a></li>
+        </ul>
+    </nav>
+
+    <div>
+        <h2>Are we missing your favorite game? Add it here!</h2>
+    </div>
+
+    <div id="inputBox">
+        <form id="dbInputForm">
+            <label for="gametitle">Game Title:</label> <br>
+            <input class="textbox" type="text" id="gametitle" name="gametitle"> <br> <br>
+            <label for="releaseyear">Year of Release:</label> <br>
+            <input class="textbox" type="text" id="releaseyear" name="releaseyear"> <br> <br>
+            <label for="region">Region:</label> <br>
+            <input class="textbox" type="text" id="region" name="region"> <br> <br>
+            <label for="platform">Platform:</label> <br>
+            <input class="textbox" type="text" id="platform" name="platform"> <br> <br>
+            <label for="publisher">Publisher:</label> <br>
+            <input class="textbox" type="text" id="publisher" name="publisher"> <br> <br>
+            <input class="btn" type="button" value="Submit" onclick="submitDB()">
+            <input class="btn" type="button" value="Clear" onclick="clearDB()">
+            <br> <br>
+        </form>
+        <h5>*Please note, there may be many differences between different versions/releases of the same game! Please
+            take special note of delayed overseas releases, title changes in different languages, and differences in
+            release dates by platform!</h5>
+    </div>
+</body>

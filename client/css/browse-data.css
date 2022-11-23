@@ -1,0 +1,25 @@
+form {
+    text-align: center;
+    margin: 0 auto;
+}
+
+div {
+    font-size: 30px;
+}
+
+button {
+    width: 5vw;
+    font-size: 1vw;
+}
+
+#next {
+    position: absolute;
+    top: 400px;
+    left: 60%;
+}
+
+#previous {
+    position: absolute;
+    top: 400px;
+    left: 40%
+}
