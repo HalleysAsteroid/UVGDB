@@ -18,6 +18,7 @@ function showTable(data) {
 
     var uvgdbTableContent = document.getElementById("uvgdbTable");
     uvgdbTableContent.innerHTML = htmlString;
+
 }
 
 function getData() {
@@ -27,7 +28,7 @@ function getData() {
         success: function (response) {
             var data = JSON.parse(response);
             if (data.msg === "SUCCESS") {
-                showTable(data.libraryData)
+                showTable(data.games)
             } else {
                 alert(data.msg)
             }
