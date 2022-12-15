@@ -18,12 +18,12 @@
     <link href="/client/css/write-data.css" rel=stylesheet>
 
     <!-- JavaScript -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     <script src="/client/js/write-data.js"></script>
 </head>
 
-<body>
+<body data-ng-app="writeGamesApp" data-ng-controller="writeGamesCtrl">
     <header id="TitleScreen">
         <img id="TitleScreenLogo" src="/client/images/logo.png" alt="UVGDB Logo">
         <h1 id="TitleScreenText">Universal Video Game Database</h1>
@@ -54,8 +54,8 @@
             <input class="textbox" type="text" id="platform" name="platform"> <br> <br>
             <label for="publisher">Publisher:</label> <br>
             <input class="textbox" type="text" id="publisher" name="publisher"> <br> <br>
-            <input class="btn" type="button" value="Submit" onclick="submitDB()">
-            <input class="btn" type="button" value="Clear" onclick="clearDB()">
+            <input class="btn" type="button" value="Submit" data-ng-click="submitDB()">
+            <input class="btn" type="button" value="Clear" data-ng-click="clearDB()">
             <br> <br>
         </form>
         <h5>*Please note, there may be many differences between different versions/releases of the same game! Please

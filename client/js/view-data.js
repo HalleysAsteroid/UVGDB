@@ -1,6 +1,3 @@
-// import jsonObject from "./dataInit.json" assert { type: "json" };
-
-// showTable();
 getData();
 
 function showTable(data) {
@@ -33,7 +30,6 @@ function getData() {
             }
         },
         error: function (err) {
-
         }
     })
 }

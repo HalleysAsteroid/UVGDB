@@ -18,8 +18,7 @@
   <link href="/client/css/view-data.css" rel=stylesheet>
 
   <!-- JavaScript -->
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
   <script src="/client/js/view-data.js" async></script>
 
   <script src="/client/js/deleteFile.js"></script>
@@ -40,7 +39,7 @@
     </ul>
   </nav>
 
-  <div>
+  <div data-ng-app="viewGamesApp" data-ng-controller="viewGamesCtrl">
     <table class="table">
       <colgroup>
         <col id="colGameTitle">
@@ -62,7 +61,6 @@
       <tbody id="uvgdbTable"></tbody>
     </table>
     <button type="button" id="deleteEntry">Click on an item to remove it from the database.</button>
-
 
   </div>
 </body>

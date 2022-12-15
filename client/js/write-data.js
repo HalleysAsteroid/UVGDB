@@ -1,40 +1,42 @@
-function submitDB() {
+var app = angular.module("writeGamesApp", []);
 
-    var gametitle = $('#gametitle').val();
-    var releaseyear = $('#releaseyear').val();
-    var region = $('#region').val();
-    var platform = $('#platform').val();
-    var publisher = $('#publisher').val();
+app.controller('writeGamesCtrl', function ($scope, $http) {
 
-    var jsonString = {
-        gametitle: gametitle,
-        releaseyear: releaseyear,
-        region: region,
-        platform: platform,
-        publisher: publisher
-    };
+    $scope.submitDB = function () {
 
-    console.log(JSON.stringify(jsonString));
-    $.ajax({
-        url: "http://localhost:5500" + "/write-record",
-        type: "post",
-        data: jsonString,
-        success: function (response) {
-            var data = JSON.parse(response);
+        var gametitle = document.getElementById('gametitle').value;
+        var releaseyear = document.getElementById('releaseyear').value;
+        var region = document.getElementById('region').value;
+        var platform = document.getElementById('platform').value;
+        var publisher = document.getElementById('publisher').value;
+
+        var jsonString = {
+            gametitle: gametitle,
+            releaseyear: releaseyear,
+            region: region,
+            platform: platform,
+            publisher: publisher
+        };
+
+        console.log(JSON.stringify(jsonString));
+        $http({
+            url: "http://localhost:5500" + "/write-record",
+            method: "post",
+            data: jsonString
+        }).then(function (response) {
+            var data = response.data;
             if (data.msg === "SUCCESS") {
                 alert(data.msg);
-                clearDB();
+                $scope.clearDB();
             } else {
                 alert(data.msg);
             }
-        },
-        error: function (err) {
+        }).catch(function (err) {
             alert(err);
-        }
-    })
-}
+        });
+    }
 
-
-function clearDB() {
-    document.getElementById("dbInputForm").reset();
-}
+    $scope.clearDB = function () {
+        document.getElementById("dbInputForm").reset();
+    }
+})
