@@ -4,7 +4,9 @@ const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectId;
 
 //Define Database URL
-const dbURL = process.env.DB_URI || "mongodb://localhost";
+const dbURL = "mongodb+srv://vscodeLogin:averysecureandcomplexpasswordthatnobodywilleverbeabletoguess@cluster0.epl7xhr.mongodb.net/?retryWrites=true&w=majority";
+// const dbURL = "mongodb + srv://vscodeLogin:averysecureandcomplexpasswordthatnobodywilleverbeabletoguess@cluster0.epl7xhr.mongodb.net/test"
+// const dbURL = "mongodb + srv://vscodeLogin:averysecureandcomplexpasswordthatnobodywilleverbeabletoguess@cluster0.epl7xhr.mongodb.net/test" || process.env.DB_URI || "mongodb://localhost";
 
 const DATABASE_FILE = path.join(__dirname + "/../server/files/data.txt");
 
