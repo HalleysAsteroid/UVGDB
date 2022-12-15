@@ -7,7 +7,7 @@ function showTable(data) {
     var htmlString = "";
 
     for (var i = 0; i < data.length; i++) {
-        htmlString += "<tr id=\"" + i + "\" onclick=\"deleteRow(this\.id)\">";
+        htmlString += "<tr onclick='deleteRow(\"" + data[i]._id + "\")'>";
         htmlString += "<td>" + data[i].gametitle + "</td>";
         htmlString += "<td>" + data[i].releaseyear + "</td>";
         htmlString += "<td>" + data[i].region + "</td>";
@@ -18,7 +18,6 @@ function showTable(data) {
 
     var uvgdbTableContent = document.getElementById("uvgdbTable");
     uvgdbTableContent.innerHTML = htmlString;
-
 }
 
 function getData() {

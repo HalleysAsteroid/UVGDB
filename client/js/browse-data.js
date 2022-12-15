@@ -7,13 +7,14 @@ app.controller('browseGamesCtrl', function ($scope, $http) {
     $scope.obj = [];
 
     $scope.get_records = function () {
+        console.log("test");
         $http({
             method: 'get',
             url: "http://localhost:5500" + "/get-records",
         }).then(function (response) {
             if (response.data.msg === "SUCCESS") {
-                games = response.data.libraryData;
-                console.log(response.data.libraryData)
+                games = response.data.games;
+                console.log(response.data.games)
                 $scope.obj = games[activeGame];
                 $scope.showHide();
 

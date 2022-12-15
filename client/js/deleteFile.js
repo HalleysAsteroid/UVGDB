@@ -3,7 +3,7 @@ function deleteRow(buttonID) {
     $.ajax({
         url: "http://localhost:5500" + "/delete-records",
         type: "delete",
-        data: buttonID,
+        data: { buttonID: buttonID },
         success: function (response) {
             var data = JSON.parse(response);
             if (data.msg === "SUCCESS") {

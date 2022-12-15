@@ -68,27 +68,29 @@ var services = function (app) {
     });
 
     app.delete('/delete-records', function (req, res) {
-        fs.readFile(DATABASE_FILE, "UTF-8", function (err, data) {
+        var gameID = req.body.buttonID;
+        console.log(gameID);
+        var g_id = new ObjectId(gameID);
+
+        var search = { _id: g_id }
+
+        MongoClient.connect(dbURL, { useUnifiedTopology: true }, function (err, client) {
             if (err) {
-                res.send(JSON.stringify({ msg: err }));
+                return res.status(201).send(JSON.stringify({ msg: "Error: " + err }));
             } else {
-                libraryData = JSON.parse(data);
-
-                libraryData.splice(req, 1);
-
-                fs.writeFile(DATABASE_FILE, JSON.stringify(libraryData), function (err) {
+                const dbo = client.db("uvgdb");
+                dbo.collection("games").deleteOne(search, function (err, data) {
                     if (err) {
-                        res.send(JSON.stringify({ msg: err }));
+                        client.close();
+                        return res.status(201).send(JSON.stringify({ msg: "Error: " + err }))
                     } else {
-                        res.send(JSON.stringify({ msg: "SUCCESS" }))
+                        client.close();
+                        return res.status(200).send(JSON.stringify({ msg: "SUCCESS" }))
                     }
-                });
+                })
             }
-        }
-
-        )
-    })
-
+        })
+    });
 };
 
 module.exports = services;
