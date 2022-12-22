@@ -69,7 +69,45 @@ tr:hover {
 
 } */
 
-button {
+#enterEditMode {
+
+    margin: 0;
+    position: absolute;
+    left: 33%;
+    transform: translate(-50%, -50%);
+
+    background-color: #cccccc;
+    clear: none;
+    outline: 12px;
+    border: white;
+    border-style: outset;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    padding: 4px;
+}
+
+#enterDeleteMode {
+
+    margin: 0;
+    position: absolute;
+    left: 67%;
+    transform: translate(-50%, -50%);
+
+    background-color: #cccccc;
+    clear: none;
+    outline: 12px;
+    border: white;
+    border-style: outset;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    padding: 4px;
+}
+
+#exitEditMode,
+#exitDeleteMode {
+
     margin: 0;
     position: absolute;
     left: 50%;

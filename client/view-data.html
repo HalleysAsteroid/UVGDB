@@ -18,13 +18,11 @@
   <link href="/client/css/view-data.css" rel=stylesheet>
 
   <!-- JavaScript -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-  <script src="/client/js/view-data.js" async></script>
-
-  <script src="/client/js/deleteFile.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+  <script src="/client/js/view-data.js"></script>
 </head>
 
-<body>
+<body data-ng-app="viewGamesApp" data-ng-controller="viewGamesCtrl">
   <header id="TitleScreen">
     <img id="TitleScreenLogo" src="/client/images/logo.png" alt="UVGDB Logo">
     <h1 id="TitleScreenText">Universal Video Game Database</h1>
@@ -39,7 +37,10 @@
     </ul>
   </nav>
 
-  <div data-ng-app="viewGamesApp" data-ng-controller="viewGamesCtrl">
+  <section data-ng-hide="!(deleteModeDisabled && editModeDisabled && formHidden)">
+    <label for="groupby">Sort by Region: </label>
+    <select id="groupby" data-ng-model="selectedRegion" data-ng-options="region.display for region in regions"
+      data-ng-change="showTable()"></select>
     <table class="table">
       <colgroup>
         <col id="colGameTitle">
@@ -58,11 +59,127 @@
         </tr>
       </thead>
 
-      <tbody id="uvgdbTable"></tbody>
+      <tbody id="uvgdbTable">
+        <tr ng-repeat="game in games">
+          <td>{{game.gametitle}}</td>
+          <td>{{game.releaseyear}}</td>
+          <td>{{game.region}}</td>
+          <td>{{game.platform}}</td>
+          <td>{{game.publisher}}</td>
+        </tr>
+      </tbody>
     </table>
-    <button type="button" id="deleteEntry">Click on an item to remove it from the database.</button>
+    <button type="button" id="enterEditMode" data-ng-click="enterEditMode()">Click here to enter Editing
+      Mode.</button>
+    <button type="button" id="enterDeleteMode" data-ng-click="enterDeleteMode()">Click here to enter Deletion
+      Mode.</button>
 
-  </div>
+  </section>
+
+  <section data-ng-hide="deleteModeDisabled">
+    <table class="table">
+      <colgroup>
+        <col id="colGameTitleD">
+        <col id="colGeleaseYearD">
+        <col id="colRegionD">
+        <col id="colPlatformD">
+        <col id="colPublisherD">
+      </colgroup>
+      <thead>
+        <tr id="tableHeaderD">
+          <th>Game Title</th>
+          <th>Year of Release</th>
+          <th>Region</th>
+          <th>Platform</th>
+          <th>Publisher</th>
+        </tr>
+
+      </thead>
+
+      <tbody id="uvgdbTableD">
+        <tr ng-repeat="game in games" data-ng-click="deleteRow(game['_id'])">
+          <td>{{game.gametitle}}</td>
+          <td>{{game.releaseyear}}</td>
+          <td>{{game.region}}</td>
+          <td>{{game.platform}}</td>
+          <td>{{game.publisher}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" id="exitDeleteMode" data-ng-click="exitDeleteMode()">Click on an item to remove it from the
+      database.<br>Click here to exit
+      Deletion Mode.</button>
+
+  </section>
+
+  <section data-ng-hide="editModeDisabled">
+    <table class="table">
+      <colgroup>
+        <col id="colGameTitleE">
+        <col id="colGeleaseYearE">
+        <col id="colRegionE">
+        <col id="colPlatformE">
+        <col id="colPublisherE">
+      </colgroup>
+      <thead>
+        <tr id="tableHeaderE">
+          <th>Game Title</th>
+          <th>Year of Release</th>
+          <th>Region</th>
+          <th>Platform</th>
+          <th>Publisher</th>
+        </tr>
+      </thead>
+
+      <tbody id="uvgdbTableE">
+        <tr ng-repeat="game in games" data-ng-click="openForm($index)">
+          <td>{{game.gametitle}}</td>
+          <td>{{game.releaseyear}}</td>
+          <td>{{game.region}}</td>
+          <td>{{game.platform}}</td>
+          <td>{{game.publisher}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" id="exitEditMode" data-ng-click="exitEditMode()">Click on an item to edit it.<br>Click here to
+      exit Editing Mode.</button>
+
+  </section>
+
+  <section data-ng-hide="formHidden">
+    <form id="editorForm">
+      <label for="" data-ng-model="_id" hidden></label>
+      <div>
+        <label for="gametitle">Game Title</label>
+        <input type="text" id="gametitle" data-ng-model="gametitle" data-ng-change=startNew()>
+      </div>
+      <div>
+        <label for="releaseyear">Year of Release</label>
+        <input type="text" id="releaseyear" data-ng-model="releaseyear" data-ng-change=startNew()>
+      </div>
+      <div>
+        <label for="region">Region</label>
+        <input type="text" id="region" data-ng-model="region" data-ng-change=startNew()>
+      </div>
+      <div>
+        <label for="platform">Platform</label>
+        <input type="text" id="platform" data-ng-model="platform" data-ng-change=startNew()>
+      </div>
+      <div>
+        <label for="publisher">Publisher</label>
+        <input type="text" id="publisher" data-ng-model="publisher" data-ng-change=startNew()>
+      </div>
+
+      <div>
+        <button type="submit" id="submit" data-ng-click="updateGame()">Update</button>
+      </div>
+      <div>
+        <button type="button" id="cancel" data-ng-click="closeForm()">Cancel</button>
+      </div>
+    </form>
+  </section>
+  <br>
+  <br>
 </body>
 
 </html>
