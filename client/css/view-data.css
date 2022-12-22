@@ -1,4 +1,4 @@
-table {
+section {
     width: 90%;
     background-color: #cccccc;
     outline: 12px;
@@ -11,6 +11,14 @@ table {
     font-size: 1vw;
     margin: 25px auto 0px;
     /* border-collapse: collapse; */
+}
+
+select {
+    font-size: 1vw;
+}
+
+table {
+    width: 100%;
     border-spacing: 0px 5px;
 }
 
@@ -69,17 +77,29 @@ tr:hover {
 
 } */
 
+button {
+    background-color: #cccccc;
+    clear: none;
+    outline: 12px;
+    border: white;
+    border-style: outset;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    padding: 4px;
+}
+
 #enterEditMode {
 
     margin: 0;
     position: absolute;
     left: 33%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
 
-    background-color: #cccccc;
+    background-color: #ECEC4A;
     clear: none;
     outline: 12px;
-    border: white;
+    border: #FFFF5D;
     border-style: outset;
     color: black;
     text-align: center;
@@ -92,12 +112,12 @@ tr:hover {
     margin: 0;
     position: absolute;
     left: 67%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
 
-    background-color: #cccccc;
+    background-color: #EC4A4A;
     clear: none;
     outline: 12px;
-    border: white;
+    border: #FF5D5D;
     border-style: outset;
     color: black;
     text-align: center;
@@ -111,15 +131,44 @@ tr:hover {
     margin: 0;
     position: absolute;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
 
-    background-color: #cccccc;
     clear: none;
     outline: 12px;
-    border: white;
     border-style: outset;
     color: black;
     text-align: center;
     text-decoration: none;
     padding: 4px;
 }
+
+#exitEditMode {
+    background-color: #ECEC4A;
+    border: #FFFF5D;
+    border-style: outset;
+    outline: 12px;
+}
+
+#exitDeleteMode {
+    background-color: #EC4A4A;
+    border: #FF5D5D;
+    border-style: outset;
+    outline: 12px;
+}
+
+/* form {
+    width: 87%;
+    background-color: #cccccc;
+    outline: 12px;
+    border: white;
+    border-style: inset;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1vw;
+    margin: 25px auto 0px;
+border-spacing: 0px 5px;
+}
+
+*/

@@ -17,7 +17,7 @@ app.controller('viewGamesCtrl', function ($scope, $http) {
                 $scope.selectedRegion = $scope.regions[0];
             } else console.log(response.data.msg)
         }, function (response) {
-            console.log(response.data.msg)
+            console.error(response.data.msg)
         });
     }
 
@@ -33,10 +33,10 @@ app.controller('viewGamesCtrl', function ($scope, $http) {
                 $scope.games = response.data.games;
             }
             else {
-                console.log(response.data.msg);
+                console.error(response.data.msg);
             }
         }, function (response) {
-            console.log(response);
+            console.error(response);
         })
     };
 
@@ -102,16 +102,15 @@ app.controller('viewGamesCtrl', function ($scope, $http) {
                 $scope.closeForm();
                 $scope.showTable();
             } else {
-                alert(response.data.msg);
+                console.error(response.data.msg);
             }
 
         }, function (response) {
-            console.log(response)
+            console.error(response)
         })
     }
 
     $scope.deleteRow = function (buttonID) {
-        alert(buttonID);
         $http({
             url: "http://localhost:5500/delete-records",
             method: "delete",
@@ -119,27 +118,17 @@ app.controller('viewGamesCtrl', function ($scope, $http) {
         }).then(function (response) {
             if (response.data.msg === "SUCCESS") {
                 console.log("Deleted Entry " + buttonID);
+                if ($scope.games.length === 1)
+                    $scope.selectedRegion = $scope.regions[0];
                 $scope.showTable();
             } else {
-                alert(response.data.msg);
+                console.error(response.data.msg);
             }
         }, function (response) {
-            console.log(response.data.msg);
+            console.error(response.data.msg);
         });
     }
-
-
-
-
-
-
-
-
-
-
-
     $scope.getData();
-
 });
 
 function getRegions(gameTableData) {

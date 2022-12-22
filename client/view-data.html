@@ -16,6 +16,7 @@
   <!-- Stylesheets -->
   <link href="/client/css/uvgdb.css" rel=stylesheet>
   <link href="/client/css/view-data.css" rel=stylesheet>
+  <link href="/client/css/write-data.css" rel="stylesheet">
 
   <!-- JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
@@ -38,9 +39,7 @@
   </nav>
 
   <section data-ng-hide="!(deleteModeDisabled && editModeDisabled && formHidden)">
-    <label for="groupby">Sort by Region: </label>
-    <select id="groupby" data-ng-model="selectedRegion" data-ng-options="region.display for region in regions"
-      data-ng-change="showTable()"></select>
+
     <table class="table">
       <colgroup>
         <col id="colGameTitle">
@@ -69,6 +68,9 @@
         </tr>
       </tbody>
     </table>
+    <label for="groupby">Sort by Region: </label>
+    <select id="groupby" data-ng-model="selectedRegion" data-ng-options="region.display for region in regions"
+      data-ng-change="showTable()"></select>
     <button type="button" id="enterEditMode" data-ng-click="enterEditMode()">Click here to enter Editing
       Mode.</button>
     <button type="button" id="enterDeleteMode" data-ng-click="enterDeleteMode()">Click here to enter Deletion
@@ -147,36 +149,36 @@
   </section>
 
   <section data-ng-hide="formHidden">
-    <form id="editorForm">
-      <label for="" data-ng-model="_id" hidden></label>
-      <div>
-        <label for="gametitle">Game Title</label>
-        <input type="text" id="gametitle" data-ng-model="gametitle" data-ng-change=startNew()>
-      </div>
-      <div>
-        <label for="releaseyear">Year of Release</label>
-        <input type="text" id="releaseyear" data-ng-model="releaseyear" data-ng-change=startNew()>
-      </div>
-      <div>
-        <label for="region">Region</label>
-        <input type="text" id="region" data-ng-model="region" data-ng-change=startNew()>
-      </div>
-      <div>
-        <label for="platform">Platform</label>
-        <input type="text" id="platform" data-ng-model="platform" data-ng-change=startNew()>
-      </div>
-      <div>
-        <label for="publisher">Publisher</label>
-        <input type="text" id="publisher" data-ng-model="publisher" data-ng-change=startNew()>
-      </div>
+    <div id="inputBox">
+      <form>
+        <label for="" data-ng-model="_id" hidden></label>
+        <div>
+          <label for="gametitle">Game Title:</label>
+          <input type="text" class="textbox" id="gametitle" data-ng-model="gametitle" data-ng-change=startNew()>
+        </div>
+        <div>
+          <label for="releaseyear">Year of Release:</label>
+          <input type="text" class="textbox" id="releaseyear" data-ng-model="releaseyear" data-ng-change=startNew()>
+        </div>
+        <div>
+          <label for="region">Region:</label>
+          <input type="text" class="textbox" id="region" data-ng-model="region" data-ng-change=startNew()>
+        </div>
+        <div>
+          <label for="platform">Platform:</label>
+          <input type="text" class="textbox" id="platform" data-ng-model="platform" data-ng-change=startNew()>
+        </div>
+        <div>
+          <label for="publisher">Publisher:</label>
+          <input type="text" class="textbox" id="publisher" data-ng-model="publisher" data-ng-change=startNew()>
+        </div>
 
-      <div>
-        <button type="submit" id="submit" data-ng-click="updateGame()">Update</button>
-      </div>
-      <div>
-        <button type="button" id="cancel" data-ng-click="closeForm()">Cancel</button>
-      </div>
-    </form>
+        <div>
+          <button type="submit" id="submit" class="btn" data-ng-click="updateGame()">Update</button>
+          <button type="button" id="cancel" class="btn" data-ng-click="closeForm()">Cancel</button>
+        </div>
+      </form>
+    </div>
   </section>
   <br>
   <br>

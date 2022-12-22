@@ -26,13 +26,12 @@ app.controller('writeGamesCtrl', function ($scope, $http) {
         }).then(function (response) {
             var data = response.data;
             if (data.msg === "SUCCESS") {
-                alert(data.msg);
                 $scope.clearDB();
             } else {
-                alert(data.msg);
+                console.error(data.msg);
             }
         }).catch(function (err) {
-            alert(err);
+            console.error(err);
         });
     }
 

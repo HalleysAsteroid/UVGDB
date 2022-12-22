@@ -1,6 +1,16 @@
 form {
+    width: 90%;
+    background-color: #cccccc;
+    outline: 12px;
+    border: white;
+    border-style: inset;
+    color: black;
     text-align: center;
-    margin: 0 auto;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1vw;
+    margin: 25px auto 0px;
+    /* margin: 0 auto; */
 }
 
 div {
@@ -16,10 +26,12 @@ button {
     position: absolute;
     top: 400px;
     left: 60%;
+    transform: translate(-50%, 0%);
 }
 
 #previous {
     position: absolute;
     top: 400px;
-    left: 40%
+    left: 40%;
+    transform: translate(-50%, 0%);
 }

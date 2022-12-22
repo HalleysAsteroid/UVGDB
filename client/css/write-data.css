@@ -1,3 +1,18 @@
+#enviroBox {
+    width: 90%;
+    background-color: #cccccc;
+    outline: 12px;
+    border: white;
+    border-style: inset;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1vw;
+    margin: 25px auto 0px;
+    /* margin: 0 auto; */
+}
+
 h2 {
     text-align: center;
 }
